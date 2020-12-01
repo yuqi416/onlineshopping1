@@ -32,6 +32,7 @@ def index(request):
     # include:Warenkategorie,Waren in Einkaufswagen, gesamt Menge in Einkaufswagen
     return render(request, 'index.html',{
                                          'waren_gesamt_Menge_in_Einkaufswagen':waren_gesamt_Menge_in_Einkaufswagen,
+                                        'waren_zeigen_list':waren_zeigen_list,
                                          })
 
 # Waren Information werden auf einer separaten Seite angezeigt
