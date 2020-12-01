@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>alle Waren in einer Kategorien</title>
+</head>
+<body>
+    {# nach Homepage springen#}
+    <td align="center" width="8%"><a href="/index" class="link" title="homepage">Homepage</a></td>
+
+    {# zeigen warenkorb #}
+     <td align="center" width="8%"><a href="/Wagen_Seite" class="link" title="Warenkorb">Warenkorb</a></td>
+    <div style="display:inline"><a>{{waren_gesamt_Menge_in_Einkaufswagen}}</a></div>
+
+    {# aktuelle Kategorien #}
+    <div style="display:inline"><a>aktuelle Kategorien:</a></div>
+    <div style="display:inline"><a>{{katg_geg.Waren_Kategorien_Name}}</a></div>
+
+    {# alle Waren in aktuelle Kategorien #}
+    {% for ware in alle_waren_katg %}
+        <li>
+            <a href="/Waren_Seite/?id={{ware.id}}"><img src="Waren/{{ware.Ware_Bild}}.jpg"></a>
+            <h1><a href="/Waren_Seite/?id={{ware.id}}">{{ware.Ware_Name}}</h1>
+            <ul>{{ware.Ware_Preis}}Euro</ul>
+        </li>
+    {% endfor %}
+
+</body>
+</html>

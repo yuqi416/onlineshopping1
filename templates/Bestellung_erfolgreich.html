@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestellung abgeben erfolgreich</title>
+</head>
+<body>
+    <h1> Bestellung abgeben erfolgreich! </h1>
+
+
+`   <div> alle Waren :</div>
+
+    <ul class="Ware Tabelle">
+        <li class="col01"> Ware Name </li>
+        <li class="col02"> Ware Bild </li>
+        <li class="col03"> Ware Preis </li>
+        <li class="col04"> Ware Menge </li>
+        <li class="col05"> Ware totale Preis </li>
+    </ul>
+
+    {% for ware in Bestellung_waren_list %}
+        <ul class="Ware Tabelle">
+            <li class="col01">{{ware.Ware_Name}}</li>
+            <li class="col02"><img src="{{ware.Ware_Bild}}".jpg></li>
+            <li class="col03">{{ware.Ware_Preis}}</li>
+            <li class="col04">{{ware.Ware_Meng}}</li>
+            <li class="col05">{{waren_gesamt_preis}}</li>
+        </ul>
+    {% endfor %}
+
+
+
+    <h2> Bestellung Information </h2>
+    <div>
+        <table>
+            <tr>
+                <td width="100"> Bestellung nummer: </td>
+                <td>{{Bestellung_info.Bestellung_Nummer}}</td>
+            </tr>
+            <tr>
+                <td> Adresse: </td>
+                <td>{{Bestellung_info.Bestellung_Add}}</td>
+            </tr>
+            <tr>
+                <td> Empfaenger: </td>
+                <td>{{Bestellung_info.Bestellung_Empf}}</td>
+            </tr>
+            <tr>
+                <td> Telefonnummer: </td>
+                <td>{{Bestellung_info.Bestellung_Tel}}</td>
+            </tr>
+            <tr>
+                <td> Anmerkung: </td>
+                <td>{{Bestellung_info.Bestellung_Anmerkung}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <ul class="zusammenfassen">
+        <li> total Preis von Waren : <em>{{gesamt_preis_Wagen}} euro</em></li>
+        <li> gesamt Waren Menge : <em>{{gesamt_num_Wagen}}</em></li>
+        <li> Transportkosten : 3.99</li>
+        <li> total Preis :<b>{{gesamt_preis_Wagen|add:3.99}}</b></li>
+    </ul>
+
+
+</body>
+</html>

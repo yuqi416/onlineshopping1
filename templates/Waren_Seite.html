@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ware Information</title>
+</head>
+<body>
+{# nach Homepage springen#}
+    <td align="center" width="8%"><a href="/index" class="link" title="homepage">Homepage</a></td>
+
+{# zeigen warenkorb #}
+        <td align="center" width="8%"><a href="/Wagen_Seite" class="link" title="Warenkorb">Warenkorb</a></td>
+        <div style="display:inline"><a>{{waren_gesamt_Menge_in_Einkaufswagen}}</a></div>
+
+{# zeigen ware information #}
+    <div class="Ware Infomation zeigen">
+        <div class="Ware_Bild"><img scr="/static/Waren/{{akt_ware_info.Ware_Bild}}.jpg"></div>
+        <h1>{{akt_ware_info.Ware_Name}}</h1>
+        <ul>{{akt_ware_info.Ware_Preis}}</ul>
+        <ul>{{akt_ware_info.Ware_Kategorien.Waren_Kategorien_Name}}</ul>
+    </div>
+{# zeigen ware Beschreibung #}
+
+    <ul class="Beschreibung">
+        <div style="display:inline"><a>{{akt_ware_info.Ware_Info}}</a></div>
+    </ul>
+
+{# nue Ware in Warenkorb hinzufuegen #}
+    <div class = "Warenkorb legen">
+        <td align="center" width="8%"><a href="/Wagen_legen/?id={{akt_ware_info.id}}" class="link" title="warenkorb legen">in Warenkorb legen</a></td>
+    </div>
+
+
+
+</body>
+</html>

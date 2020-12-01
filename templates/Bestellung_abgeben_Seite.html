@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kasse</title>
+</head>
+<body>
+{# nach Homepage springen#}
+    <td align="center" width="8%"><a href="/index" class="link" title="homepage">Homepage</a></td>
+
+
+    <h1>Mein Warenkorb</h1>
+
+
+`   <div> alle Waren in Warenkorb:<em>{{waren_gesamt_Menge_in_Einkaufswagen}}</em></div>
+
+    <ul class="Ware Tabelle">
+        <li class="col01"> Ware Name </li>
+        <li class="col02"> Ware Bild </li>
+        <li class="col03"> Ware Preis </li>
+        <li class="col04"> Ware Menge </li>
+        <li class="col05"> Ware totale Preis </li>
+    </ul>
+
+    {% for ware in waren_in_Einkaufswagen_list %}
+        <ul class="Ware Tabelle">
+            <li class="col01">{{ware.Ware_Name}}</li>
+            <li class="col02"><img src="{{ware.Ware_Bild}}".jpg></li>
+            <li class="col03">{{ware.Ware_Preis}}</li>
+            <li class="col04">{{ware.waren_menge}}</li>
+            <li class="col05">{{ware.ware_gesamt_preis}}</li>
+        </ul>
+    {% endfor %}
+
+    <ul class="Empfaenger Information">
+        <form action="/Bestellung_erfolgreich/" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td> Adresse: </td>
+                    <td><input style="..." type="text" name="Adresse"></td>
+                </tr>
+                <tr>
+                    <td> Empfaenger: </td>
+                    <td><input style="..." type="text" name="Empfaenger"></td>
+                </tr>
+                <tr>
+                    <td> Telefonnummer: </td>
+                    <td><input style="..." type="text" name="Telefonnummer"></td>
+                </tr>
+                <tr>
+                    <td> Anmerkung: </td>
+                    <td><input style="..." type="text" name="Anmerkung"></td>
+                </tr>
+            </table>
+        </form>
+    </ul>
+
+    <ul class="zusammenfassen">
+        <li> total Preis in Einkaufswagen: <em>{{waren_gesamt_Preis_in_Einkaufswagen}} euro</em></li>
+        <li> gesamt Waren Menge in Einkaufswagen: <em>{{waren_gesamt_Menge_in_Einkaufswagen}}</em></li>
+        <li> Transportkosten : 3.99</li>
+        <li> total Preis soll bezahlen:<b>{{waren_gesamt_Preis_in_Einkaufswagen|add:3.99}}</b></li>
+    </ul>
+
+    <ul> Bezahlung Methode : <label> Cash </label></ul>
+
+
+    <td align="center" width="8%"><a href="/Bestellung_abegeben_fertig" class="link" title="Kasse">Bestellung abgeben</a></td>
+
+
+</body>
+</html>
